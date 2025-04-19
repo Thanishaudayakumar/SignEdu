@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rhymes to Explore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #D3A6FF, #E6B3FF);
+      color: #4A4A4A;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app-frame {
+      width: 100%;
+      max-width: 400px;
+      background: linear-gradient(to right, #D3A6FF, #f0f0f0);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: bold;
+      color: #4A4A4A;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .rhyme-card {
+      background-color: white;
+      width: 100%;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .rhyme-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon {
+      font-size: 1.8rem;
+      color: #8A4DFF;
+      margin-right: 15px;
+    }
+
+    .text {
+      text-align: left;
+    }
+
+    .text h2 {
+      font-size: 1.1rem;
+      margin: 0;
+      color: #8A4DFF;
+    }
+
+    .text p {
+      font-size: 0.9rem;
+      margin: 5px 0 0 0;
+      color: #666;
+    }
+
+    @media (max-width: 450px) {
+      .app-frame {
+        padding: 15px;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      .text h2 {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-frame">
+    <header>
+      <h1>Rhymes to Explore!</h1>
+    </header>
+    <div class="container">
+      <div class="rhyme-card" onclick="navigateTo('twinkle.html')">
+        <div class="icon">🎵</div>
+        <div class="text">
+          <h2>Twinkle Twinkle Little Star</h2>
+          <p>Twinkle Twinkle Little Star</p>
+        </div>
+      </div>
+      <div class="rhyme-card" onclick="navigateTo('alphabet.html')">
+        <div class="icon">🎵</div>
+        <div class="text">
+          <h2>Alphabet Song</h2>
+          <p>Alphabets</p>
+        </div>
+      </div>
+      <div class="rhyme-card" onclick="navigateTo('roadsafety.html')">
+        <div class="icon">🚦</div>
+        <div class="text">
+          <h2>Road Safety Rhyme</h2>
+          <p>Stop, Look, and Listen</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>

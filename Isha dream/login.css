@@ -1,0 +1,83 @@
+/* General Styles for the Body and HTML */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #D3A6FF, #E6B3FF);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for the Login Form Container */
+.container {
+    background: linear-gradient(to right, #D3A6FF, #f0f0f0);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+}
+
+/* Styling for the Image Section */
+.image-section {
+    background: url('https://i.ibb.co/G3BQfpN/Leonardo-Phoenix-Heres-the-prompt-for-creating-the-3-D-animesty-0.jpg') no-repeat center center/cover;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Heading Styles */
+h1 {
+    color: #4A4A4A;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Input Fields Styling */
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #8A4DFF;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #D3A6FF;
+}
+
+/* Responsive Styles */
+@media (max-width: 450px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

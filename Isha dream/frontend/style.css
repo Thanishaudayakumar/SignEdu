@@ -1,0 +1,90 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #E6E0FF; /* Light purple background */
+}
+
+.login-page {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #D3C4F3, #9C27B0); /* Purple gradient background */
+}
+
+.image-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2); /* Slight overlay for visibility */
+}
+
+.image-section img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Add shadow for depth */
+}
+
+.login-form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    padding: 30px;
+    background: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #6A1B9A;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.purple-button {
+    background-color: #8E24AA;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.purple-button:hover {
+    background-color: #7A1C91;
+}
+
+.hidden {
+    display: none;
+}
+
+p {
+    margin-top: 15px;
+}
+
+a {
+    color: #8E24AA;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

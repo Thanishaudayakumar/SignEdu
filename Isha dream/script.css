@@ -1,0 +1,4 @@
+document.getElementById("showSignUp").addEventListener("click", function() {
+    document.getElementById("signUpForm").classList.remove("hidden");
+    document.getElementById("loginForm").classList.add("hidden");
+});

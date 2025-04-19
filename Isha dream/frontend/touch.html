@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Good & Bad Touch Sign Language</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #D3A6FF, #FFFFFF);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 20px;
+    }
+    .video-section, .slideshow-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .video-section {
+      background: #D3A6FF;
+    }
+    .video-section h1 {
+      color: white;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .video-container video {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .slideshow-section {
+      background: #FFFFFF;
+      text-align: center;
+    }
+    .slideshow-section h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #D3A6FF;
+    }
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .slideshow-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slideshow-container img.active {
+      opacity: 1;
+    }
+    .subtitle {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #D3A6FF;
+      text-align: center;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .back-button {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: white;
+      transition: 0.3s;
+      align-self: flex-start;
+      margin-bottom: 15px;
+    }
+    .back-button:hover {
+      color: #FFFFFF;
+    }
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        padding: 10px;
+      }
+      .video-section, .slideshow-section {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+      }
+      .slideshow-container {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Video Section -->
+    <div class="video-section">
+      <button class="back-button" onclick="history.back();">&larr; Back</button>
+      <h1>Learn Sign Language</h1>
+      <div class="video-container">
+        <video id="video" controls>
+          <source src="https://ik.imagekit.io/rzxhsjk7e1/Good%20&%20Bad%20Touch%20Song%20%EF%BD%9C%20Say%20No%20To%20Bad%20Touch%20%EF%BD%9C%20Child%20Awareness.mp4?updatedAt=1745046000094" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-section">
+      <h2>Sign Language Guide</h2>
+      <div class="slideshow-container">
+        <img id="slideshowImage" src="" alt="Sign Language Image">
+      </div>
+      <div id="subtitle" class="subtitle">Subtitles will appear here...</div>
+    </div>
+  </div>
+
+  <script>
+    const video = document.getElementById('video');
+    const subtitleText = document.getElementById('subtitle');
+    const slideshowImage = document.getElementById('slideshowImage');
+
+    const subtitles = [
+  // Good Touch - Comforting tone
+       { start: 5, end: 6, text: "Good", image: "https://i.ibb.co/395TjMfy/good.png" },
+  { start: 6, end: 7, text: "Touch", image: "https://i.ibb.co/217wt3L7/touch.png" },
+       { start: 7, end: 8, text: "Bad", image: "https://i.ibb.co/Rn0hRZF/bad.png" },
+  { start: 8, end: 9, text: "Touch", image: "https://i.ibb.co/217wt3L7/touch.png" },
+  { start: 20, end: 21, text: "Good", image: "https://i.ibb.co/395TjMfy/good.png" },
+  { start: 21, end: 22, text: "Touch", image: "https://i.ibb.co/217wt3L7/touch.png" },
+       { start: 22, end: 23, text: "Okay", image: "https://i.ibb.co/4nLDB680/okay.png" },
+        { start: 23, end: 24, text: "Touch", image: "https://i.ibb.co/217wt3L7/touch.png" },
+       { start: 24, end: 25, text: "Bad", image: "https://i.ibb.co/Rn0hRZF/bad.png" },
+  { start: 25, end: 26, text: "Touch", image: "https://i.ibb.co/217wt3L7/touch.png" },
+      
+  
+
+  { start: 29, end: 36, text: "Good", image: "https://i.ibb.co/395TjMfy/good.png" },
+  { start: 36, end: 40, text: "Touch", image: "https://i.ibb.co/217wt3L7/touch.png" },
+  { start: 40, end: 59, text: "Happy", image: "https://i.ibb.co/GzkMK04/happy.png" },
+
+  // Transition to Bad Touch – tone shift
+  { start: 63, end: 66, text: "Bad", image: "https://i.ibb.co/Rn0hRZF/bad.png" },
+  { start: 66, end: 69, text: "Touch", image: "https://i.ibb.co/217wt3L7/touch.png" },
+  { start: 70, end: 74, text: "Sad", image: "https://i.ibb.co/3Yk1YQfw/sad.png" },
+{ start: 74, end: 77, text: "Bad", image: "https://i.ibb.co/Rn0hRZF/bad.png" },
+  { start: 77, end: 81, text: "Touch", image: "https://i.ibb.co/217wt3L7/touch.png" },
+  
+
+  { start: 82, end: 86, text: "Bad", image: "https://i.ibb.co/Rn0hRZF/bad.png" },
+  { start: 86, end: 89, text: "Touch", image: "https://i.ibb.co/217wt3L7/touch.png" },
+  { start: 89, end: 91, text: "Sad", image: "https://i.ibb.co/3Yk1YQfw/sad.png" },
+       { start: 89, end: 95, text: "No", image: "https://i.ibb.co/NdYDsn1R/no.png" },
+       { start: 95, end: 110, text: "help", image: 
+"https://i.ibb.co/NdYDsn1R/no.png" }
+];
+
+
+    video.addEventListener('timeupdate', () => {
+      const currentTime = video.currentTime;
+      const current = subtitles.find(s => currentTime >= s.start && currentTime < s.end);
+
+      if (current) {
+        subtitleText.innerText = current.text;
+        subtitleText.style.opacity = 1;
+        slideshowImage.src = current.image;
+        slideshowImage.classList.add('active');
+      } else {
+        subtitleText.style.opacity = 0;
+        slideshowImage.classList.remove('active');
+      }
+    });
+
+    // Preload images
+    window.addEventListener('load', () => {
+      subtitles.forEach(sub => {
+        const img = new Image();
+        img.src = sub.image;
+      });
+    });
+  </script>
+</body>
+</html>

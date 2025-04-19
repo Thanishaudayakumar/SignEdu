@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn Sign Language</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: linear-gradient(to right, #D3A6FF, #FFFFFF);
+      display: flex;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-section, .slideshow-section {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-section {
+      background-color: #D3A6FF;
+      color: white;
+    }
+
+    .video-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 70%;
+      border-radius: 12px;
+      border: none;
+    }
+
+    .slideshow-section {
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .slideshow-section h2 {
+      color: #D3A6FF;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .slideshow-container {
+      height: 70%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slideshow-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .subtitle {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #D3A6FF;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .video-section, .slideshow-section {
+        width: 100%;
+        height: 50%;
+      }
+
+      iframe, .slideshow-container {
+        height: 60%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Video Section -->
+    <div class="video-section">
+      <h1>Learn Sign Language</h1>
+      <iframe id="vimeo-video" src="https://player.vimeo.com/video/1076503127?h=f23615d81f&title=0&byline=0&portrait=0"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-section">
+      <h2>Sign Language Guide</h2>
+      <div class="slideshow-container">
+        <img id="slideshowImage" src="" alt="Sign Image" />
+      </div>
+      <div id="subtitle" class="subtitle">Subtitles will appear here...</div>
+    </div>
+  </div>
+
+  <!-- Vimeo Player API -->
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    const iframe = document.getElementById('vimeo-video');
+    const player = new Vimeo.Player(iframe);
+    const subtitleText = document.getElementById('subtitle');
+    const slideshowImage = document.getElementById('slideshowImage');
+
+    const subtitles = [
+      { start: 14.880, end: 17.0, text: "Twinkle", image: "https://i.ibb.co/pR7HjsZ/twinkle.jpg" },
+      { start: 17.0, end: 20.530, text: "Little Star", image: "https://i.ibb.co/CmdJzT3/Little-Star.jpg" },
+      { start: 20.530, end: 23.0, text: "How I", image: "https://i.ibb.co/3WQzzpc/How-I.jpg" },
+      { start: 23.0, end: 26.685, text: "Wonder What You Are", image: "https://i.ibb.co/GtmtCnw/wonder.jpg" },
+      { start: 26.685, end: 28.5, text: "Up", image: "https://i.ibb.co/wFHzJJSr/up.jpg" },
+      { start: 28.5, end: 30.0, text: "Above", image: "https://i.ibb.co/TDXn2xKN/above-the.jpg" },
+      { start: 30.0, end: 31.7, text: "The World", image: "https://i.ibb.co/wD8yDWr/world.jpg" },
+      { start: 31.7, end: 32.680, text: "So High", image: "https://i.ibb.co/GQyTdZhY/so-high.jpg" },
+      { start: 32.680, end: 34.5, text: "Like A", image: "https://i.ibb.co/SXKx9mzm/like-a.jpg" },
+      { start: 34.5, end: 36.5, text: "Diamond", image: "https://i.ibb.co/nNjfvgLZ/diamond.jpg" },
+      { start: 36.5, end: 38.500, text: "In The Sky", image: "https://i.ibb.co/b50rCLvy/in-the-sky.jpg" },
+      { start: 38.500, end: 41.0, text: "Twinkle", image: "https://i.ibb.co/pR7HjsZ/twinkle.jpg" },
+      { start: 41.0, end: 44.600, text: "Little Star", image: "https://i.ibb.co/CmdJzT3/Little-Star.jpg" },
+      { start: 44.600, end: 47.0, text: "How I", image: "https://i.ibb.co/3WQzzpc/How-I.jpg" },
+      { start: 47.0, end: 50.250, text: "Wonder What You Are", image: "https://i.ibb.co/GtmtCnw/wonder.jpg" },
+      { start: 50.250, end: 53.0, text: "Twinkle Twinkle Twinkle", image: "https://i.ibb.co/pR7HjsZ/twinkle.jpg" }
+    ];
+
+    player.on('timeupdate', function(data) {
+      const current = data.seconds;
+
+      if (current >= 56) {
+        player.pause();
+      }
+
+      const sub = subtitles.find(s => current >= s.start && current < s.end);
+      if (sub) {
+        subtitleText.innerText = sub.text;
+        slideshowImage.src = sub.image;
+      } else {
+        subtitleText.innerText = "";
+        slideshowImage.src = "";
+      }
+    });
+  </script>
+</body>
+</html>

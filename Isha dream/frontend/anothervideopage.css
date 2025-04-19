@@ -1,0 +1,67 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header Styling */
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #004d61;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Main Content Styling */
+main {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Card Styling */
+.rhyme-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #80c3ff, #4a90e2);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rhyme-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon Styling */
+.rhyme-card .icon {
+    font-size: 40px;
+    color: white;
+    margin-right: 20px;
+}
+
+.rhyme-card .text h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.rhyme-card .text p {
+    font-size: 1rem;
+    color: white;
+}

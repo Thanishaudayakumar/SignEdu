@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Sign Language</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #D3A6FF, #FFFFFF);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            padding: 20px;
+        }
+
+        .video-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #D3A6FF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-section h1 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .slideshow-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            background: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .slideshow-section h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #D3A6FF;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slideshow-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slideshow-container img.active {
+            opacity: 1;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #D3A6FF;
+            text-align: center;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: white;
+            transition: 0.3s;
+            display: inline-block;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+
+        .back-button:hover {
+            color: #D3A6FF;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .video-section, .slideshow-section {
+                width: 100%;
+                height: auto;
+                padding: 10px;
+            }
+            .slideshow-container {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Video Section -->
+        <div class="video-section">
+            <button class="back-button" onclick="history.back();">&larr; Back</button>
+            <h1>Learn Sign Language</h1>
+            <div class="video-container">
+                <video id="video" controls>
+                    <source src="https://ik.imagekit.io/rzxhsjk7e1/road%20(1).mp4?updatedAt=1744947941610" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Slideshow Section -->
+        <div class="slideshow-section">
+            <h2>Sign Language Guide</h2>
+            <div class="slideshow-container">
+                <img id="slideshowImage" src="" alt="Sign Language Image">
+            </div>
+            <div id="subtitle" class="subtitle">Subtitles will appear here...</div>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const subtitleText = document.getElementById('subtitle');
+        const slideshowImage = document.getElementById('slideshowImage');
+
+        // Complete subtitles with all images properly matched
+        const subtitles = [
+            // First part of the rhyme
+            { start: 14, end: 15, text: "Walk", image: "https://i.ibb.co/p6bSHHYJ/walk.jpg" },
+            { start: 15, end: 17, text: "Mommy", image: "https://i.ibb.co/KxYHD4k7/mommy.jpg" },
+            { start: 17, end: 18, text: "Walk", image: "https://i.ibb.co/p6bSHHYJ/walk.jpg" },
+            { start: 18, end: 19, text: "Daddy", image: "https://i.ibb.co/0jGRdhMY/daddy.jpg" },
+            { start: 19, end: 20, text: "Hold", image: "https://i.ibb.co/jk3tMCGG/hold.jpg" },
+            { start: 20, end: 24, text: "Hand", image: "https://i.ibb.co/VWGyjT2q/hand.jpg" },
+            { start: 24, end: 26, text: "When", image: "https://i.ibb.co/7tBykQKD/when.jpg" },
+            { start: 26, end: 29, text: "Time", image: "https://i.ibb.co/fdBGpcrr/time.jpg" }, 
+            { start: 29, end: 30, text: "Road", image: "https://i.ibb.co/0VfJp8Rs/road.jpg" },
+            { start: 30, end: 32, text: "Look", image: "https://i.ibb.co/5ht5BWjk/see.png" },
+            { start: 32, end: 33, text: "Cars", image: "https://i.ibb.co/Mx98VtKQ/car.jpg" },
+            { start: 33, end: 34, text: "Road", image: "https://i.ibb.co/0VfJp8Rs/road.jpg" },
+            { start: 34, end: 36, text: "Don't", image: "https://i.ibb.co/whf8jZpQ/dont.jpg" },
+            { start: 36, end: 38, text: "run", image: "https://i.ibb.co/6RVR3hZY/run.jpg" },
+            { start: 38, end: 39, text: "Road", image: "https://i.ibb.co/0VfJp8Rs/road.jpg" },
+            { start: 39, end: 40, text: "Look", image: "https://i.ibb.co/5ht5BWjk/see.png" },
+            { start: 40, end: 44, text: "Zebra Crossing", image: "https://i.ibb.co/pmtXg0F/zeebra.jpg" },
+            
+            // Second part of the rhyme
+            { start: 40.092, end: 42.611, text: "Crossing code", image: "https://i.ibb.co/hRVytzqS/rule.jpg" },
+            { start: 42.611, end: 44, text: "Wait for the signal to be green", image: "https://i.ibb.co/Kcc68wYt/wait.webp" },
+            { start: 44, end: 47.170, text: "Wait for the signal to be green", image: "https://i.ibb.co/R4MzyhP8/green.webp" },
+            { start: 47.170, end: 47.670, text: "Look right", image: "https://i.ibb.co/pB5GLH7X/right.png" },
+            { start: 47.670, end: 48.170, text: "and left", image: "https://i.ibb.co/DH4GHwf4/leave.png" },
+            { start: 48.170, end: 50.960, text: "before you lean", image: "https://i.ibb.co/rrFPQF3/before.png" },
+            { start: 50.960, end: 55.180, text: "These are the basic rules", image: "https://i.ibb.co/sLCRgdv/these-are-the.png" },
+            { start: 55.180, end: 56.750, text: "You see", image: "https://i.ibb.co/5ht5BWjk/see.png" },
+            { start: 56.750, end: 59.304, text: "You must follow them", image: "https://i.ibb.co/0jx5LX1s/you.jpg" },
+            { start: 59.304, end: 60, text: "For your safety", image: "https://i.ibb.co/RTWtj9mK/follow-for-your.png" },
+            { start: 60, end: 62.000, text: "For your safety", image: "https://i.ibb.co/tTjXRP0d/safety.png" }
+        ];
+
+        let currentSubtitle = null;
+        let nextSubtitle = null;
+
+        video.addEventListener('timeupdate', () => {
+            let currentTime = video.currentTime;
+            
+            // Find current and next subtitles for smooth transition
+            currentSubtitle = subtitles.find(sub => currentTime >= sub.start && currentTime < sub.end);
+            nextSubtitle = subtitles.find(sub => currentTime >= sub.start - 0.5 && currentTime < sub.start);
+            
+            if (currentSubtitle) {
+                // Fade in current subtitle and image
+                subtitleText.innerText = currentSubtitle.text;
+                subtitleText.style.opacity = 1;
+                
+                slideshowImage.src = currentSubtitle.image;
+                slideshowImage.classList.add('active');
+            } else if (nextSubtitle) {
+                // Prepare for next subtitle (pre-load)
+                slideshowImage.src = nextSubtitle.image;
+                slideshowImage.classList.remove('active');
+            } else {
+                // Fade out when no subtitle
+                subtitleText.style.opacity = 0;
+                slideshowImage.classList.remove('active');
+            }
+        });
+
+        // Preload all images for smoother transitions
+        function preloadImages() {
+            subtitles.forEach(sub => {
+                const img = new Image();
+                img.src = sub.image;
+            });
+        }
+        
+        // Start preloading when page loads
+        window.addEventListener('load', preloadImages);
+    </script>
+
+</body>
+</html>
