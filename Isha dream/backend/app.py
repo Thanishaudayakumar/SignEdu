@@ -59,7 +59,7 @@ def login():
 # ✅ Serve frontend HTML files
 @app.route('/')
 def index():
-    return send_from_directory(app.static_folder, 'login.html')
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/<path:filename>')
 def serve_static(filename):
